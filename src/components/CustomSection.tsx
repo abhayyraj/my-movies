@@ -14,7 +14,7 @@ export default function CustomSection(props: CustomSectionProps) {
         <section className={`description ${className}`} id={id}>
             <h3 className="text-[26px] font-semibold">{heading}</h3>
             <div>
-                {desc.map(description => (<p>{description}</p>))}
+                {desc.map((description, index) => (<p key={index}>{description}</p>))}
             </div>
         </section>
     );

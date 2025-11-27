@@ -2,6 +2,8 @@ import { MovieContext } from "../store/MovieContext";
 import { useState } from "react";
 import CustomSection from "../components/CustomSection";
 import { type DescriptionCardsType } from "./types";
+import Divider from "../components/Divider";
+import Card from "../components/Card";
 
 const descriptionCardsContent: DescriptionCardsType[] = [
     {
@@ -29,18 +31,28 @@ function Home() {
             <header className="mb-[48px]">
                 <h1 className="text-[84px] text-[#FFC400] font-bold">My movies</h1>
             </header>
-            <section>
-                <h2 className="text-[#FF3F7F] text-[36px]">A little context...</h2>
+            <section className="mb-[24px]">
+                <h2 className="text-[#FF3F7F] text-[36px]">A little context</h2>
+                <Divider className="bg-[#FF3F7F]" />
             </section>
-            {descriptionCardsContent.map((descriptionCard, index) => (
-                <CustomSection
-                    key={index}
-                    id={descriptionCard.id}
-                    heading={descriptionCard.heading}
-                    desc={descriptionCard.description}
-                    className={(index !== descriptionCardsContent.length - 1) ? "mb-[24px]" : ""}
-                />
-            ))}
+            <article className="mb-[48px]">
+                {descriptionCardsContent.map((descriptionCard, index) => (
+                    <CustomSection
+                        key={index}
+                        id={descriptionCard.id}
+                        heading={descriptionCard.heading}
+                        desc={descriptionCard.description}
+                        className={(index !== descriptionCardsContent.length - 1) ? "mb-[24px]" : ""}
+                    />
+                ))}
+            </article>
+            <main className="pb-[400px]">
+                <section className="mb-[24px]">
+                    <h2 className="text-[#FF3F7F] text-[36px]">My favorites</h2>
+                    <Divider className="bg-[#FF3F7F]" />
+                </section>
+                <div><Card /></div>
+            </main>
         </MovieContext>
     );
 };
